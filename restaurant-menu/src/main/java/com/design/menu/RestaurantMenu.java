@@ -52,10 +52,10 @@ public class RestaurantMenu {
                 continue; // Skip empty lines
             }
             String id = next;
-            String type = input.getString();
+            MenuItemType type = MenuItemType.valueOf(input.getString());
             String name = input.getString();
-            switch (type.toUpperCase()) {
-                case "DISH":
+            switch (type) {
+                case DISH:
                     float price = Float.parseFloat(input.getString());
                     Dish dish = new Dish(id, name, price, MenuItemType.DISH);
                     while(!next.isEmpty()){
@@ -68,7 +68,7 @@ public class RestaurantMenu {
                     }
                     menu.put(id,dish);
                     break;
-                case "CATEGORY":
+                case CATEGORY:
                     Category category= new Category(id, name);
                     while(!next.isEmpty()){
                         next = input.getString();
@@ -78,7 +78,7 @@ public class RestaurantMenu {
                     }
                     menu.put(id, category);
                     break;
-                case "OPTION":
+                case OPTION:
                         float optionPrice = Float.parseFloat(input.getString());
                         MenuItem option = new Option(id, name, optionPrice);
                         menu.put(id, option);
