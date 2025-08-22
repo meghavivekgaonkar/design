@@ -1,14 +1,13 @@
 package com.design.menu;
 
 import com.design.menu.enums.MenuItemType;
-import java.math.BigDecimal;
 
 public class Option implements MenuItem {
     private final String id; 
     private final String name;
-    private final BigDecimal addtionalPrice;
+    private final float addtionalPrice;
 
-    public Option(String id, String name, BigDecimal addtionalPrice) {
+    public Option(String id, String name, float addtionalPrice) {
         this.id = id;
         this.name = name;
         this.addtionalPrice = addtionalPrice;
@@ -22,7 +21,7 @@ public class Option implements MenuItem {
         return name;
     }
 
-    public BigDecimal getPrice() {
+    public float getPrice() {
         return addtionalPrice;
     }
 

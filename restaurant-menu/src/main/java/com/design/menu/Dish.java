@@ -1,17 +1,16 @@
 package com.design.menu;
 
 import com.design.menu.enums.MenuItemType;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Dish implements MenuItem {
     private final String id;
     private final String name;
-    private final BigDecimal price;
-    private List<String> addOns;
+    private final float  price;
+    private List<String> addOns; //option - id
 
-    public Dish(String id, String name, BigDecimal price, MenuItemType type) {
+    public Dish(String id, String name, float price, MenuItemType type) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -26,7 +25,7 @@ public class Dish implements MenuItem {
         return name;
     }
 
-    public BigDecimal getPrice() {
+    public float getPrice() {
         return price;
     }
 

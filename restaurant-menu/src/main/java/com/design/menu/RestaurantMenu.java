@@ -2,7 +2,6 @@
 package com.design.menu;
 
 import com.design.menu.enums.MenuItemType;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -40,7 +39,7 @@ public class RestaurantMenu {
      * Parses the input and displays the menu.
      */
     public void parseAndDisplayMenu() {
-        Map<String,MenuItem> menu = new HashMap<>();
+        Map<String,MenuItem> menu = new HashMap<>();// id - MenuItem mapping
         Map<String, List<String>> categoryMap = new HashMap<>(); // Category to Dish mapping
         Input input = new Input();
 
@@ -57,7 +56,7 @@ public class RestaurantMenu {
             String name = input.getString();
             switch (type.toUpperCase()) {
                 case "DISH":
-                    BigDecimal price = new BigDecimal(input.getString());
+                    float price = Float.parseFloat(input.getString());
                     Dish dish = new Dish(id, name, price, MenuItemType.DISH);
                     while(!next.isEmpty()){
                         //add on 
@@ -80,7 +79,7 @@ public class RestaurantMenu {
                     menu.put(id, category);
                     break;
                 case "OPTION":
-                        BigDecimal optionPrice = new BigDecimal(input.getString());
+                        float optionPrice = Float.parseFloat(input.getString());
                         MenuItem option = new Option(id, name, optionPrice);
                         menu.put(id, option);
                     break;
